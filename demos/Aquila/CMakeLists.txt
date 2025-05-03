@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-hiactor_add_demo (fastmatch
+hiactor_add_demo (Aquila
   SOURCES
     query.cc
     actor/map.act.cc
