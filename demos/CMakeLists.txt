@@ -41,11 +41,8 @@ macro (hiactor_add_demo name)
   add_dependencies (demos ${target})
 endmacro ()
 
-#add_subdirectory (mini-batch-MQGPM)
-  # add_subdirectory (ActorGF)
-add_subdirectory (fastmatch)
-# add_subdirectory (multiUser)
-# add_subdirectory (versionOfMultipleActor)
+add_subdirectory (Aquila)
+
 # gpu_resource_pool_sample is disable by default when CUDA environments is missing.
 if (Hiactor_GPU_ENABLE)
   add_subdirectory (gpu_pool_sample)
