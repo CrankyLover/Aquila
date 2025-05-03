@@ -50,7 +50,7 @@ e 3 2 11
 ```
 - `query_folder_path` represents the query folder path, which contains a set of query graph files, each consists of multiple rows and each row represents a vertex or edge, just like shown in vertex file and edge file.
 
-- `used_CPU_number` is the number of CPU that used in Aquila, which cannot surpass the max number of available CPU.
+- `core` is the number of CPU that used in Aquila, which cannot surpass the max number of available CPU.
 - `batch_size` is the batch size used in Aquila.
 - `max_iteration_times` is the maximum batch number processed in Aquila.
 - `if_collect_result_number` is **true** if Aquila collects the number of query results of each query graph and shows them, **false** otherwise.
