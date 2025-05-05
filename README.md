@@ -25,17 +25,17 @@ Next, replaced hiactor with corresponding folders and files. Specifically, with 
 
 ```
 $ git clone https://github.com/CrankyLover/Aquila.git
-$ mv Aquila/aquila hiactor/demos/
-$ mv Aquila/example hiactor/
-$ mv Aquila/LSQB-QG hiactor/
-$ rm -r hiactor/include
-$ mv Aquila/include hiactor/
-$ rm -r hiactor/src
-$ mv Aquila/src hiactor/
-$ rm hiactor/CMakeLists.txt
-$ mv Aquila/CMakeListsInhiactor.txt hiactor/CMakeLists.txt
-$ rm hiactor/demos/CMakeLists.txt
-$ mv Aquila/CMakeListsIndemos.txt hiactor/demos/CMakeLists.txt
+$ mv Aquila/aquila demos/
+$ mv Aquila/example .
+$ mv Aquila/LSQB-QG .
+$ rm -r include/
+$ mv Aquila/include .
+$ rm -r src/
+$ mv Aquila/src .
+$ rm CMakeLists.txt
+$ mv Aquila/CMakeListsInhiactor.txt CMakeLists.txt
+$ rm demos/CMakeLists.txt
+$ mv Aquila/CMakeListsIndemos.txt demos/CMakeLists.txt
 $ rm -r Aquila
 ```
 
@@ -46,7 +46,6 @@ $ cd build
 $ cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DHiactor_CXX_DIALECT=gnu++17 \
     -DHiactor_TESTING=OFF -DSeastar_CXX_FLAGS="-DSEASTAR_DEFAULT_ALLOCATOR" ..
 $ make
-$ make install
 ```
 
 ## Run Aquila
