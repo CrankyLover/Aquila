@@ -49,7 +49,7 @@ $ make
 ```
 
 ## Run Aquila
-Assume that the file path **"hiactor/build/demos/Aquila"** is located, the following command can be executed to run Aquila.
+Assume that the file path **"hiactor/build/demos/aquila"** is located, the following command can be executed to run Aquila.
 ```
 $ ./aquila -v vertex_file_path -e edge_file_path -u update_file_path -q query_folder_path \
     -core used_CPU_number -batch batch_size -iters max_iteration_times -show if_collect_result_number
@@ -84,7 +84,7 @@ The files  under `example/querygraphs` shows example querygraphs $Q_1$ to $Q_5$,
 
 An example to run Aquila is shown below:
 ```
-$ ./Aquila -v vertex.txt -e edge.txt -u updatestream.txt -q querygraphs -used_CPU_number 1 -batch 1000 -iters 1 -show true
+$ ./aquila -v vertex.txt -e edge.txt -u updatestream.txt -q querygraphs -used_CPU_number 1 -batch 1000 -iters 1 -show true
 ```
 
 The example data graph and query graphs are shown below, note that we make mapping which maps uppercase letters of the label to Arabic numerals, which can be verified in the files in `example`.
