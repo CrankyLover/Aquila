@@ -9,24 +9,50 @@ Aquila is developed based on [hiactor](https://github.com/alibaba/hiactor), a hi
 - Linux system.
 - CMake $\geq$ 3.13.1.
 
-Build Aquila with following commands:
+Aquila is built and tested successfully on a Linux machine with Ubuntu 20.04, gcc 9.5.0 and CMake 3.28.3.
+
+Note that Aquila is built upon hiactor, which served as a demo project in hiactor, and the **include**, **src** and **CMakeList.txt** should be modified according to the folders and files given in this repo. 
+
+Clone hiactor and install necessary dependencies first with following commands.
+
 ```
-$ git clone https://github.com/CrankyLover/Aquila.git
+$ git clone https://github.com/alibaba/hiactor.git
+$ cd hiactor
 $ git submodule update --init --recursive
 $ sudo ./seastar/seastar/install-dependencies.sh
+```
+Next, replaced hiactor with corresponding folders and files. Specifically, with following commands:
+
+```
+$ git clone https://github.com/CrankyLover/Aquila.git
+$ mv Aquila/aquila hiactor/demos/
+$ mv Aquila/example hiactor/
+$ mv Aquila/LSQB-QG hiactor/
+$ rm -r hiactor/include
+$ mv Aquila/include hiactor/
+$ rm -r hiactor/src
+$ mv Aquila/src hiactor/
+$ rm hiactor/CMakeLists.txt
+$ mv Aquila/CMakeListsInhiactor.txt hiactor/CMakeLists.txt
+$ rm hiactor/demos/CMakeLists.txt
+$ mv Aquila/CMakeListsIndemos.txt hiactor/demos/CMakeLists.txt
+$ rm -r Aquila
+```
+
+Finally, build Aquila with following commands:
+```
 $ mkdir build
 $ cd build
 $ cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DHiactor_CXX_DIALECT=gnu++17 \
     -DHiactor_TESTING=OFF -DSeastar_CXX_FLAGS="-DSEASTAR_DEFAULT_ALLOCATOR" ..
 $ make
 $ make install
-$ cd demos/Aquila
 ```
 
 ## Run Aquila
-Assume that the file path **"Aquila/build/demos/Aquila"** is located, the following command can be executed to run Aquila.
+Assume that the file path **"hiactor/build/demos/Aquila"** is located, the following command can be executed to run Aquila.
 ```
-$ ./Aquila -v vertex_file_path -e edge_file_path -u update_file_path -q query_folder_path \
+$ ./aquila -v vertex_file_path -e edge_file_path -u update_file_path -q query_folder_path \
     -core used_CPU_number -batch batch_size -iters max_iteration_times -show if_collect_result_number
 ```
 
@@ -55,9 +81,19 @@ e 3 2 11
 - `max_iteration_times` is the maximum batch number processed in Aquila.
 - `if_collect_result_number` is **true** if Aquila collects the number of query results of each query graph and shows them, **false** otherwise.
 
+The files  under `example/querygraphs` shows example querygraphs $Q_1$ to $Q_5$, `example/vertex.txt` shows the example graph only with vertices, `example/edge.txt` shows the example graph only with edges, `example/updatestream.txt` shows the update graph with vertices and edges. **This example is the same as the example used throughout our paper.**
+
 An example to run Aquila is shown below:
 ```
-$ ./Aquila -v vertex.txt -e edge.txt -u updatestream.txt -q querygraphs -core 1 -batch 1000 -iters 1 -show true
+$ ./Aquila -v vertex.txt -e edge.txt -u updatestream.txt -q querygraphs -used_CPU_number 1 -batch 1000 -iters 1 -show true
 ```
+
+The example data graph and query graphs are shown below, note that we make mapping which maps uppercase letters of the label to Arabic numerals, which can be verified in the files in `example`.
+
+![datagraphandquerygraphs](example.png)
+
+## Benchmark
+
+The benchmark we used including the datasets and LSQB-QG workloads can be found in another repo [LSQB-QG](https://github.com/CrankyLover/LSQB-QG).
 
 
