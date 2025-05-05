@@ -84,7 +84,7 @@ The files  under `example/querygraphs` shows example querygraphs $Q_1$ to $Q_5$,
 
 An example to run Aquila is shown below:
 ```
-$ ./aquila -v vertex.txt -e edge.txt -u updatestream.txt -q querygraphs -used_CPU_number 1 -batch 1000 -iters 1 -show true
+$ ./aquila -v vertex.txt -e edge.txt -u updatestream.txt -q querygraphs -core 1 -batch 1000 -iters 1 -show true
 ```
 
 The example data graph and query graphs are shown below, note that we make mapping which maps uppercase letters of the label to Arabic numerals, which can be verified in the files in `example`.
