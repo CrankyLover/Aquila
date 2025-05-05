@@ -314,7 +314,7 @@ set (Hiactor_PRIVATE_CXX_FLAGS
   -fvisibility=hidden
   -UNDEBUG
   -Wall
-  -Werror
+#  -Werror
   -Wno-array-bounds
   -Wno-error=deprecated-declarations
   -Wno-attributes)
