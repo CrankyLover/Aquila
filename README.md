@@ -2,7 +2,7 @@
 
 Aquila is a high-concurrency incremental graph query system which aims to solve concurrent mutilple graph queries in dynamic graph with performance isolation guarantee.
 
-## Building Aquila
+## Build Aquila
 Aquila is developed based on [hiactor](https://github.com/alibaba/hiactor), a high-performance framework for building concurrent event-driven systems using C++. The following requirements should meet.
 
 - C++ 17 support (gcc $\geq$ 9.0).
